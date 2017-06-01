@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Futsal Booking System</string>
+
+    <!-- Strings related to login -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In </string>
+    <string name="error_invalid_username">This Username is invalid.</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+
+    <string name="title_activity_log_in">LogInActivity</string>
+    <string name="log_in">Log In</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="show_password">Show Password</string>
+    <string name="quit"> Quit </string>
+    <string name="title_activity_customer_home">CustomerHome</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+</resources>

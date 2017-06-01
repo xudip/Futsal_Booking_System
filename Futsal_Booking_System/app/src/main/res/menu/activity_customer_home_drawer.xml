@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navHome"
+            android:title="Home" />
+        <item
+            android:id="@+id/navSearchFutsal"
+            android:title="Search Futsal" />
+        <item
+            android:id="@+id/navBookedFutsal"
+            android:title="Booked Futsal" />
+        <item
+            android:id="@+id/navNearByFutsal"
+            android:title="Near By Futsal" />
+        <item
+            android:id="@+id/navChallengeRoom"
+            android:title="Challenge Room" />
+        <item
+            android:id="@+id/navWishList"
+            android:title="Wishlist" />
+        <item
+            android:id="@+id/navViewOffers"
+            android:title="View Offers" />
+    </group>
+
+    <item
+        android:id="@+id/navSetting"
+        android:title="Settings" />
+    <item
+        android:id="@+id/navLogOut"
+        android:title="Log Out" />
+
+
+</menu>
