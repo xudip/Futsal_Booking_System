@@ -1,66 +1,33 @@
 package com.example.sugaste.futsal_booking_system;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.xudip.futsalbookingsystem.R;
 
-public class SearchFutsal extends AppCompatActivity {
+public class SearchFutsal extends Fragment {
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //returning our layout file
+        //change R.layout.yourlayoutfilename for each of your fragments
+        return inflater.inflate(R.layout.content_search_futsal, container, false);
+    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_search_futsal);
-
-        Spinner spinnerFrom = (Spinner) findViewById(R.id.spinnerFrom);
-        Spinner spinnerTo = (Spinner) findViewById(R.id.spinnerTo);
-        Spinner spinnerAmPmFrom = (Spinner) findViewById(R.id.spinnerAmPmFrom);
-        Spinner spinnerAmPmTo = (Spinner) findViewById(R.id.spinnerAmPmTo);
-
-        spinnerFrom.setAdapter(getspinnerFrom());
-        spinnerAmPmFrom.setAdapter(getspinnerAmPm());
-
-        spinnerTo.setAdapter(getspinnerTo());
-        spinnerAmPmTo.setAdapter(getspinnerAmPm());
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        //you can set the title for your toolbar here for different fragments different titles
+        getActivity().setTitle("Search Futsal");
     }
-
-    @Override
-    public void onBackPressed() {
-      if(this.getClass().toString().equals("CustomerHome")){
-            this.finish();
-            Toast.makeText(this,"Exited From Home only.", Toast.LENGTH_SHORT).show();
-        }
-        else {
-//            super.onBackPressed();
-            startActivity(new Intent(this, CustomerHome.class));
-            this.finish();
-            Toast.makeText(this, "Back Presed.", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-
-//    get the value for startup.
-
-    public ArrayAdapter<Integer> getspinnerFrom(){
-        Integer from[] = {1,2,3,4,5,6,7,8,9,10,11,12};
-        ArrayAdapter <Integer> adapterSpinnerFrom = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_item, from );
-        return (adapterSpinnerFrom);
-    }
-
-    public ArrayAdapter<Integer> getspinnerTo(){
-        Integer to[] = {1,2,3,4,5,6,7,8,9,10,11,12};
-        ArrayAdapter <Integer> adapterSpinnerTo = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_item, to );
-        return (adapterSpinnerTo);
-    }
-
-    public ArrayAdapter<String> getspinnerAmPm(){
-        String ampm[] = {"AM", "PM"};
-        ArrayAdapter<String> adapterAmPm = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, ampm);
-        return(adapterAmPm);
-    }
-//    end of value of startup.
 }

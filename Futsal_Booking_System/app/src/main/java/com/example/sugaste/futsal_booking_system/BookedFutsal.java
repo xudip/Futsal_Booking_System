@@ -1,8 +1,13 @@
 package com.example.sugaste.futsal_booking_system;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -10,38 +15,20 @@ import android.widget.Toast;
 
 import com.xudip.futsalbookingsystem.R;
 
-public class BookedFutsal extends AppCompatActivity {
-
+public class BookedFutsal extends Fragment {
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booked_futsal);
-
-        String []listElements = {"1","2", "3","4","5", "6","7","8", "9","10","11", "12"};
-        ListAdapter bookedList = new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1, listElements);
-        ListView bookedFutsalList = (ListView) findViewById(R.id.listView);
-        bookedFutsalList.setAdapter(bookedList);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //returning our layout file
+        //change R.layout.yourlayoutfilename for each of your fragments
+        return inflater.inflate(R.layout.content_search_futsal, container, false);
     }
 
-    @Override
-    public void onBackPressed() {
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//            drawer.closeDrawer(GravityCompat.START);
-//            Toast.makeText(this, "Closing Navigation bar.", Toast.LENGTH_SHORT).show();
-//
-//        }
-//        else
-    if(this.getClass().toString().equals("CustomerHome")){
-            this.finish();
-            Toast.makeText(this,"Exited From Home only.", Toast.LENGTH_SHORT).show();
-        }
-        else {
-//            super.onBackPressed();
-            startActivity(new Intent(this, CustomerHome.class));
-            this.finish();
-            Toast.makeText(this, "Back Presed.", Toast.LENGTH_SHORT).show();
-        }
-    }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        //you can set the title for your toolbar here for different fragments different titles
+        getActivity().setTitle("Booked Futsal");
+    }
 }

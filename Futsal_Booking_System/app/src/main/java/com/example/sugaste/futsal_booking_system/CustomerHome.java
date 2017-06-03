@@ -2,6 +2,8 @@ package com.example.sugaste.futsal_booking_system;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,7 +21,7 @@ import com.xudip.futsalbookingsystem.R;
 public class CustomerHome extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-//    public Layout contentCustomer = (Layout) findViewById(R.id.body);
+    private Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,19 +31,15 @@ public class CustomerHome extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button btnSearchFutsal = (Button) findViewById(R.id.btnSearchFutsal);
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//                this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
-
 
 //    start of action listeners like clikck.
 
@@ -58,34 +56,12 @@ public class CustomerHome extends AppCompatActivity
             Toast.makeText(this,"Exited From Home only.", Toast.LENGTH_SHORT).show();
         }
         else {
-//            super.onBackPressed();
             startActivity(new Intent(this, CustomerHome.class));
             this.finish();
             Toast.makeText(this, "Back Presed.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-
-        return true;
-    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -125,7 +101,6 @@ public class CustomerHome extends AppCompatActivity
         }
         if(itemSelected.equals("Log Out")){
             Toast.makeText(this, itemSelected, Toast.LENGTH_SHORT).show();
-            getLogOut();
         }
 
 
@@ -151,30 +126,22 @@ public class CustomerHome extends AppCompatActivity
 //    start of navigations of activities.
 
     public void getSearchFutsal(){
-        startActivity(new Intent(this, SearchFutsal.class));
-        this.finish();
-
-//        contentCustomer.removeAllViews();
-//        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
-//        View childLayout = inflater.inflate(R.layout.content_search_futsal, (ViewGroup) findViewById(R.id.content_search_futsal));
-//        contentCustomer.addView(childLayout);
-
-
+        fragment = new SearchFutsal();
+        updateFragment(fragment);
     }
-
 
     public void getBookedFutsal(){
-        startActivity(new Intent(this, BookedFutsal.class));
-        this.finish();
-    }
+        fragment = new BookedFutsal();
+        updateFragment(fragment);
+        }
 
     public void getNearByFutsal(){
 
     }
 
     public void getChallengeRoom(){
-        this.finish();
-        startActivity(new Intent(this, ChallengeRoom.class));
+        fragment = new ChallengeRoom();
+        updateFragment(fragment);
     }
 
     public void getWishList(){
@@ -189,10 +156,12 @@ public class CustomerHome extends AppCompatActivity
 
     }
 
-    public void getLogOut(){
-        this.finish();
-        startActivity(new Intent(this, LogInActivity.class));
-    }
 //    end of navigations
 
+    private void updateFragment(Fragment fragment)
+    {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_frame, fragment);
+        ft.commit();
+    }
 }

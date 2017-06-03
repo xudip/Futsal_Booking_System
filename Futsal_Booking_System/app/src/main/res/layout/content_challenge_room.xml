@@ -22,7 +22,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/lblCreateChallenge"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:text="Choose a Futsal"
@@ -30,14 +31,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/lblChooseFutsal"
         android:layout_below="@+id/lblCreateChallenge"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spinnerFutsalName"
         android:layout_below="@+id/lblChooseFutsal"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:text="From:"
@@ -45,7 +48,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/lblFrom"
         android:layout_below="@+id/spinnerFutsalName"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -53,7 +57,8 @@
         android:id="@+id/spinnerFrom"
         android:layout_below="@+id/spinnerFutsalName"
         android:layout_toEndOf="@+id/lblFrom"
-        android:layout_above="@+id/spinnerTo" />
+        android:layout_above="@+id/spinnerTo"
+        android:layout_toRightOf="@+id/lblFrom" />
 
     <TextView
         android:text="To:"
@@ -62,7 +67,9 @@
         android:id="@+id/lblTo"
         android:layout_toEndOf="@+id/lblFrom"
         android:layout_below="@+id/lblFrom"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toRightOf="@+id/lblFrom" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -70,7 +77,8 @@
         android:id="@+id/spinnerTo"
         android:layout_alignBottom="@+id/lblTo"
         android:layout_toEndOf="@+id/lblTo"
-        android:layout_below="@+id/lblFrom" />
+        android:layout_below="@+id/lblFrom"
+        android:layout_toRightOf="@+id/lblTo" />
 
     <EditText
         android:layout_width="match_parent"
@@ -82,7 +90,9 @@
         android:layout_alignParentEnd="true"
         android:background="@color/black_overlay"
         android:layout_height="wrap_content"
-        android:hint="Challenge Description" />
+        android:hint="Challenge Description"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" />
 
     <Button
         android:text="List\nChallenges"
@@ -90,7 +100,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnListChallenges"
         android:layout_below="@+id/txtCustomDescription"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
 
     <Button
         android:text="Create \nChallenge"
@@ -98,7 +109,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnCreateChallenge"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/btnListChallenges" />
+        android:layout_toEndOf="@+id/btnListChallenges"
+        android:layout_toRightOf="@+id/btnListChallenges" />
 
     <Button
         android:text="Cancel"
@@ -107,7 +119,8 @@
         android:id="@+id/btnCancel"
         android:layout_below="@+id/txtCustomDescription"
         android:layout_toEndOf="@+id/btnCreateChallenge"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/btnCreateChallenge" />
 
 </RelativeLayout>
 </ScrollView>
