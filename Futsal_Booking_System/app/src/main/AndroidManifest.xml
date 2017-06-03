@@ -14,13 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.example.sugaste.futsal_booking_system.LogInActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_log_in"
-            android:theme="@style/FullscreenTheme">
-
-        </activity>
-        <activity
             android:name="com.example.sugaste.futsal_booking_system.CustomerHome"
             android:label="@string/title_activity_customer_home"
             android:theme="@style/AppTheme.NoActionBar">
