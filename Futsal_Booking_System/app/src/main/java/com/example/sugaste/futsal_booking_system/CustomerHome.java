@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.sugaste.futsal_booking_system.includes.UI;
 import com.xudip.futsalbookingsystem.R;
 
 public class CustomerHome extends AppCompatActivity
@@ -48,17 +49,13 @@ public class CustomerHome extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-            Toast.makeText(this, "Closing Navigation bar.", Toast.LENGTH_SHORT).show();
-
         }
         else if(this.getClass().toString().equals("CustomerHome")){
             this.finish();
-            Toast.makeText(this,"Exited From Home only.", Toast.LENGTH_SHORT).show();
         }
         else {
             startActivity(new Intent(this, CustomerHome.class));
             this.finish();
-            Toast.makeText(this, "Back Presed.", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -66,43 +63,40 @@ public class CustomerHome extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         String itemSelected = item.toString();
-        Toast.makeText(this,itemSelected, Toast.LENGTH_SHORT).show();
 
         if(itemSelected.equals("Home")){
-            Toast.makeText(this, itemSelected, Toast.LENGTH_SHORT).show();
+
         }
 
         if(itemSelected.equals("Search Futsal")){
-            Toast.makeText(this, itemSelected, Toast.LENGTH_SHORT).show();
             getSearchFutsal();
         }
 
         if(itemSelected.equals("Booked Futsal")){
-            Toast.makeText(this, itemSelected, Toast.LENGTH_SHORT).show();
             getBookedFutsal();
         }
 
         if(itemSelected.equals("Near By Futsal")){
-            Toast.makeText(this, itemSelected, Toast.LENGTH_SHORT).show();
+
         }
 
         if(itemSelected.equals("Challenge Room")){
-            Toast.makeText(this, itemSelected, Toast.LENGTH_SHORT).show();
             getChallengeRoom();
         }
         if(itemSelected.equals("Wishlist")){
-            Toast.makeText(this, itemSelected, Toast.LENGTH_SHORT).show();
+
         }
         if(itemSelected.equals("View Offers")){
-            Toast.makeText(this, itemSelected, Toast.LENGTH_SHORT).show();
+
         }
         if(itemSelected.equals("Settings")){
-            Toast.makeText(this, itemSelected, Toast.LENGTH_SHORT).show();
+
         }
         if(itemSelected.equals("Log Out")){
-            Toast.makeText(this, itemSelected, Toast.LENGTH_SHORT).show();
+
         }
 
+        UI.PrintLogToLogCat("navigation", itemSelected);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
