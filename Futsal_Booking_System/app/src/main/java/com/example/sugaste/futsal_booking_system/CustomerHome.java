@@ -49,17 +49,13 @@ public class CustomerHome extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-            Toast.makeText(this, "Closing Navigation bar.", Toast.LENGTH_SHORT).show();
-
         }
         else if(this.getClass().toString().equals("CustomerHome")){
             this.finish();
-            Toast.makeText(this,"Exited From Home only.", Toast.LENGTH_SHORT).show();
         }
         else {
             startActivity(new Intent(this, CustomerHome.class));
             this.finish();
-            Toast.makeText(this, "Back Presed.", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -67,7 +63,6 @@ public class CustomerHome extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         String itemSelected = item.toString();
-        Toast.makeText(this,itemSelected, Toast.LENGTH_SHORT).show();
 
         if(itemSelected.equals("Home")){
 

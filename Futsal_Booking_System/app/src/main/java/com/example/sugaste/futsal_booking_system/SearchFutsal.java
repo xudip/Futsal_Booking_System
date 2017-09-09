@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.sugaste.futsal_booking_system.includes.UI;
 import com.xudip.futsalbookingsystem.R;
 
 public class SearchFutsal extends Fragment {
@@ -117,13 +118,12 @@ public class SearchFutsal extends Fragment {
         timeTo = spinnerTo.getSelectedItem().toString() + " " + spinnerToAmPm.getSelectedItem().toString();
 
         if(!futsalAddress.equals("") && !futsalAddress.equals("")  && !timeFrom.equals("") && !timeTo.equals("")){
-            Toast.makeText(getContext(), "Futsal Name: " +futsalName + "\n" +
+            UI.PrintLogToLogCat("search", "Futsal Name: " +futsalName + "\n" +
                             "Futsal Address: " + futsalAddress + "\n" +
                             "Time From: " + timeFrom + "\n" +
-                            "Time From: " + timeTo
-                    , Toast.LENGTH_SHORT).show();
+                            "Time From: " + timeTo);
         }else{
-
+            UI.PrintLogToLogCat("search", "No match Found");
         }
 
     }
