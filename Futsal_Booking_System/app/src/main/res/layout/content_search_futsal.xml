@@ -121,10 +121,20 @@
         android:layout_alignTop="@+id/spinnerAmPmFrom"
         android:layout_toRightOf="@+id/spinnerAmPmFrom" />
 
+    <Button
+        android:text="List All"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnListAllFutsal"
+        android:layout_alignBottom="@+id/lblTo"
+        android:layout_toEndOf="@+id/btnSearch"
+        android:layout_alignTop="@+id/btnSearch"
+        android:layout_toRightOf="@+id/btnSearch" />
+
     <ListView
         android:id="@+id/list_of_futsal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/btnSearch"
         />
 

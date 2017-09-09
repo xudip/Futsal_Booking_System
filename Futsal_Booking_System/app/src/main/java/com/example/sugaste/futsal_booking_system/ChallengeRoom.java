@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.sugaste.futsal_booking_system.includes.UI;
 import com.xudip.futsalbookingsystem.R;
 
 public class ChallengeRoom extends Fragment {
@@ -62,11 +63,11 @@ public class ChallengeRoom extends Fragment {
     }
 
     private void getCreateChallengeDailog() {
-        Toast.makeText(getContext(), "Show dialog for creating challenges", Toast.LENGTH_SHORT).show();
+        UI.PrintLogToLogCat("Challenge Room","Show dialog for creating challenges");
     }
 
     private void getListOfChallenges() {
-        Toast.makeText(getContext(), "Show list from database", Toast.LENGTH_SHORT).show();
+        UI.PrintLogToLogCat("Challenge Room", "Show list from database");
     }
 
 

@@ -21,6 +21,7 @@ public class SearchFutsal extends Fragment {
     private EditText txtFutsalName, txtFutsalAddress;
     private Spinner spinnerFrom, spinnerTo, spinnerFromAmPm, spinnerToAmPm;
     private Button btnSearch;
+    private Button btnListAllFutsal;
     private ListView listOfFutsal;
     private String futsalName,
         futsalAddress,
@@ -41,9 +42,11 @@ public class SearchFutsal extends Fragment {
         spinnerTo = (Spinner) view.findViewById(R.id.spinnerTo);
         spinnerFromAmPm = (Spinner) view.findViewById(R.id.spinnerAmPmFrom);
         spinnerToAmPm = (Spinner) view.findViewById(R.id.spinnerAmPmTo);
+
         getTimeSpinnerData();
 
         btnSearch = (Button) view.findViewById(R.id.btnSearch);
+        btnListAllFutsal = (Button) view.findViewById(R.id.btnListAllFutsal);
 
         listOfFutsal = (ListView) view.findViewById(R.id.list_of_futsal);
 
@@ -55,6 +58,15 @@ public class SearchFutsal extends Fragment {
                 Toast.makeText(getContext(), "Time FROM :" + spinnerFrom.getSelectedItem().toString() +
                         " " + spinnerFromAmPm.getSelectedItem().toString() + "\n" +
                         " " + spinnerTo.getSelectedItem().toString() + " " + spinnerToAmPm.getSelectedItem().toString()
+                        , Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnListAllFutsal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getListOfFutsal();
+                Toast.makeText(getContext(), "Listing all futsal"
                         , Toast.LENGTH_SHORT).show();
             }
         });
@@ -111,7 +123,7 @@ public class SearchFutsal extends Fragment {
                             "Time From: " + timeTo
                     , Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(getContext(), "SOMETHING IS MISSING FIND IT AND HIGHLIGHT IT", Toast.LENGTH_SHORT).show();
+
         }
 
     }
