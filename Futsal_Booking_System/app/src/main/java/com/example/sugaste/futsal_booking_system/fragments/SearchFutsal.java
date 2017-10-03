@@ -1,4 +1,4 @@
-package com.example.sugaste.futsal_booking_system;
+package com.example.sugaste.futsal_booking_system.fragments;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -35,7 +35,7 @@ public class SearchFutsal extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
-        View view = inflater.inflate(R.layout.content_search_futsal, container, false);
+        View view = inflater.inflate(R.layout.fragment_search_futsal, container, false);
 
         txtFutsalName = (EditText) view.findViewById(R.id.txt_name_of_futsal);
         txtFutsalAddress = (EditText) view.findViewById(R.id.txt_address_of_futsal);

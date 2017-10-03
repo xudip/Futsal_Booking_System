@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.sugaste.futsal_booking_system.CustomerHome">
+    tools:context="com.example.sugaste.futsal_booking_system.fragments.CustomerMainScreen">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -23,6 +23,6 @@
 
     <include
         android:id="@+id/homeContent"
-        layout="@layout/content_customer_home" />
+        layout="@layout/customer_main_screen" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -1,8 +1,11 @@
-package com.example.sugaste.futsal_booking_system;
+package com.example.sugaste.futsal_booking_system.fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -11,15 +14,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.Toast;
 
+import com.example.sugaste.futsal_booking_system.LoginActivity;
 import com.example.sugaste.futsal_booking_system.includes.UI;
 import com.xudip.futsalbookingsystem.R;
 
-public class CustomerHome extends AppCompatActivity
+public class CustomerMainScreen extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Fragment fragment;
@@ -40,6 +41,8 @@ public class CustomerHome extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        getHomeFragment();
+
     }
 
 //    start of action listeners like clikck.
@@ -50,12 +53,9 @@ public class CustomerHome extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         }
-        else if(this.getClass().toString().equals("CustomerHome")){
-            this.finish();
-        }
-        else {
-            startActivity(new Intent(this, CustomerHome.class));
-            this.finish();
+        else{
+            getHomeFragment();
+            //getFragmentManager().popBackStack("navigation", FragmentManager.POP_BACK_STACK_INCLUSIVE);
         }
     }
 
@@ -65,15 +65,15 @@ public class CustomerHome extends AppCompatActivity
         String itemSelected = item.toString();
 
         if(itemSelected.equals("Home")){
-
+            getHomeFragment();
         }
 
         if(itemSelected.equals("Search Futsal")){
-            getSearchFutsal();
+            getSearchFutsalFragment();
         }
 
         if(itemSelected.equals("Booked Futsal")){
-            getBookedFutsal();
+            getBookedFutsalFragment();
         }
 
         if(itemSelected.equals("Near By Futsal")){
@@ -81,7 +81,7 @@ public class CustomerHome extends AppCompatActivity
         }
 
         if(itemSelected.equals("Challenge Room")){
-            getChallengeRoom();
+            getChallengeRoomFragment();
         }
         if(itemSelected.equals("Wishlist")){
 
@@ -93,7 +93,8 @@ public class CustomerHome extends AppCompatActivity
 
         }
         if(itemSelected.equals("Log Out")){
-
+            this.finish();
+            startActivity(new Intent(this, LoginActivity.class));
         }
 
         UI.PrintLogToLogCat("navigation", itemSelected);
@@ -103,28 +104,33 @@ public class CustomerHome extends AppCompatActivity
         return true;
     }
 
-    public void actionSearchFutsal(View v){
-        getSearchFutsal();
+    private void getHomeFragment() {
+        fragment = new HomeFragment();
+        updateFragment(fragment);
     }
 
-    public void actionBookedFutsal(View v1){
-        getBookedFutsal();
+    public void actionSearchFutsalFragment(View v){
+        getSearchFutsalFragment();
     }
 
-    public void actionChallengeRoom(View v2){
-        getChallengeRoom();
+    public void actionBookedFutsalFragment(View v1){
+        getBookedFutsalFragment();
+    }
+
+    public void actionChallengeRoomFragment(View v2){
+        getChallengeRoomFragment();
     }
 
 
 //end of action listeners.
 //    start of navigations of activities.
 
-    public void getSearchFutsal(){
+    public void getSearchFutsalFragment(){
         fragment = new SearchFutsal();
         updateFragment(fragment);
     }
 
-    public void getBookedFutsal(){
+    public void getBookedFutsalFragment(){
         fragment = new BookedFutsal();
         updateFragment(fragment);
         }
@@ -133,7 +139,7 @@ public class CustomerHome extends AppCompatActivity
 
     }
 
-    public void getChallengeRoom(){
+    public void getChallengeRoomFragment(){
         fragment = new ChallengeRoom();
         updateFragment(fragment);
     }
@@ -156,6 +162,37 @@ public class CustomerHome extends AppCompatActivity
     {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_frame, fragment);
+        //ft.add(fragment, "navigation").addToBackStack("navigation");
         ft.commit();
     }
+    public void getAlertDialog(String msg, boolean okButtonVisibilityOnly){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage(msg);
+        if(okButtonVisibilityOnly) {
+            alertDialogBuilder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+        }
+
+        else{
+            alertDialogBuilder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            alertDialogBuilder.setPositiveButton("NO", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+        }
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
 }
