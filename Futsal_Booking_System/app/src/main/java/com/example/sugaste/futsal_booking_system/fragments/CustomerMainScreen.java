@@ -1,5 +1,7 @@
 package com.example.sugaste.futsal_booking_system.fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.example.sugaste.futsal_booking_system.LoginActivity;
 import com.example.sugaste.futsal_booking_system.includes.UI;
 import com.xudip.futsalbookingsystem.R;
 
@@ -90,7 +93,8 @@ public class CustomerMainScreen extends AppCompatActivity
 
         }
         if(itemSelected.equals("Log Out")){
-
+            this.finish();
+            startActivity(new Intent(this, LoginActivity.class));
         }
 
         UI.PrintLogToLogCat("navigation", itemSelected);
@@ -161,6 +165,34 @@ public class CustomerMainScreen extends AppCompatActivity
         //ft.add(fragment, "navigation").addToBackStack("navigation");
         ft.commit();
     }
+    public void getAlertDialog(String msg, boolean okButtonVisibilityOnly){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage(msg);
+        if(okButtonVisibilityOnly) {
+            alertDialogBuilder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
 
+                }
+            });
+        }
+
+        else{
+            alertDialogBuilder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            alertDialogBuilder.setPositiveButton("NO", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+        }
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
 
 }

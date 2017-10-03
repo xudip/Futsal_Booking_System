@@ -359,7 +359,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 finish();
                 startActivity(new Intent(getBaseContext(), CustomerMainScreen.class));
             } else {
-                getAlertDialog("Email and Password do not match! \n Please Try Again.");
+                getAlertDialog("Email and Password do not match! \n Please Try Again.", true);
                 txtPassword.requestFocus();
             }
         }
@@ -370,16 +370,32 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
         }
     }
-    public void getAlertDialog(String msg){
+    public void getAlertDialog(String msg, boolean okButtonVisibilityOnly){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage(msg);
-        alertDialogBuilder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+        if(okButtonVisibilityOnly) {
+            alertDialogBuilder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
 
-            }
-        });
+                }
+            });
+        }
 
+       else{
+            alertDialogBuilder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            alertDialogBuilder.setPositiveButton("NO", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+        }
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
