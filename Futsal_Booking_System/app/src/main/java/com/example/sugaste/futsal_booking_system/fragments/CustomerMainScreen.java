@@ -3,6 +3,7 @@ package com.example.sugaste.futsal_booking_system.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -16,7 +17,7 @@ import android.view.MenuItem;
 import com.example.sugaste.futsal_booking_system.includes.UI;
 import com.xudip.futsalbookingsystem.R;
 
-public class CustomerHome extends AppCompatActivity
+public class CustomerMainScreen extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Fragment fragment;
@@ -37,6 +38,8 @@ public class CustomerHome extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        getHomeFragment();
+
     }
 
 //    start of action listeners like clikck.
@@ -47,12 +50,9 @@ public class CustomerHome extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         }
-        else if(this.getClass().toString().equals("CustomerHome")){
-            this.finish();
-        }
-        else {
-            startActivity(new Intent(this, CustomerHome.class));
-            this.finish();
+        else{
+            getHomeFragment();
+            //getFragmentManager().popBackStack("navigation", FragmentManager.POP_BACK_STACK_INCLUSIVE);
         }
     }
 
@@ -101,7 +101,8 @@ public class CustomerHome extends AppCompatActivity
     }
 
     private void getHomeFragment() {
-
+        fragment = new HomeFragment();
+        updateFragment(fragment);
     }
 
     public void actionSearchFutsalFragment(View v){
@@ -157,6 +158,7 @@ public class CustomerHome extends AppCompatActivity
     {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_frame, fragment);
+        //ft.add(fragment, "navigation").addToBackStack("navigation");
         ft.commit();
     }
 
