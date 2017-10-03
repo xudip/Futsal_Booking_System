@@ -62,15 +62,15 @@ public class CustomerHome extends AppCompatActivity
         String itemSelected = item.toString();
 
         if(itemSelected.equals("Home")){
-
+            getHomeFragment();
         }
 
         if(itemSelected.equals("Search Futsal")){
-            getSearchFutsal();
+            getSearchFutsalFragment();
         }
 
         if(itemSelected.equals("Booked Futsal")){
-            getBookedFutsal();
+            getBookedFutsalFragment();
         }
 
         if(itemSelected.equals("Near By Futsal")){
@@ -78,7 +78,7 @@ public class CustomerHome extends AppCompatActivity
         }
 
         if(itemSelected.equals("Challenge Room")){
-            getChallengeRoom();
+            getChallengeRoomFragment();
         }
         if(itemSelected.equals("Wishlist")){
 
@@ -100,28 +100,32 @@ public class CustomerHome extends AppCompatActivity
         return true;
     }
 
-    public void actionSearchFutsal(View v){
-        getSearchFutsal();
+    private void getHomeFragment() {
+
     }
 
-    public void actionBookedFutsal(View v1){
-        getBookedFutsal();
+    public void actionSearchFutsalFragment(View v){
+        getSearchFutsalFragment();
     }
 
-    public void actionChallengeRoom(View v2){
-        getChallengeRoom();
+    public void actionBookedFutsalFragment(View v1){
+        getBookedFutsalFragment();
+    }
+
+    public void actionChallengeRoomFragment(View v2){
+        getChallengeRoomFragment();
     }
 
 
 //end of action listeners.
 //    start of navigations of activities.
 
-    public void getSearchFutsal(){
+    public void getSearchFutsalFragment(){
         fragment = new SearchFutsal();
         updateFragment(fragment);
     }
 
-    public void getBookedFutsal(){
+    public void getBookedFutsalFragment(){
         fragment = new BookedFutsal();
         updateFragment(fragment);
         }
@@ -130,7 +134,7 @@ public class CustomerHome extends AppCompatActivity
 
     }
 
-    public void getChallengeRoom(){
+    public void getChallengeRoomFragment(){
         fragment = new ChallengeRoom();
         updateFragment(fragment);
     }
@@ -155,4 +159,6 @@ public class CustomerHome extends AppCompatActivity
         ft.replace(R.id.content_frame, fragment);
         ft.commit();
     }
+
+
 }

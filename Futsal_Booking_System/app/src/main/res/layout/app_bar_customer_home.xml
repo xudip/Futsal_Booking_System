@@ -23,6 +23,6 @@
 
     <include
         android:id="@+id/homeContent"
-        layout="@layout/content_customer_home" />
+        layout="@layout/customer_main_screen" />
 
 </android.support.design.widget.CoordinatorLayout>
