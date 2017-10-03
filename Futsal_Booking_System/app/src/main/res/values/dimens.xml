@@ -6,4 +6,9 @@
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <fraction name="edittext_width_percent">90%</fraction>
+    <fraction name="edittext_height_percent">10%</fraction>
+    <fraction name="button_width_percent">50%</fraction>
+    <fraction name="button_height_percent">10%</fraction>
 </resources>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_widthPercent="@fraction/edittext_width_percent"
+        app:layout_heightPercent="10%"
+        app:layout_marginLeftPercent="2%"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txt_first_name"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:hint="First Name"
+ />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_widthPercent="@fraction/edittext_width_percent"
+        app:layout_heightPercent="@fraction/edittext_height_percent"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txt_last_name"
+        android:layout_below="@+id/txt_first_name"
+        android:layout_alignLeft="@+id/txt_first_name"
+        android:layout_alignRight="@+id/txt_first_name"
+        android:layout_alignEnd="@+id/txt_first_name"
+        android:hint="Last Name" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_widthPercent="@fraction/edittext_width_percent"
+        app:layout_heightPercent="@fraction/edittext_height_percent"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/txt_email"
+        android:layout_below="@+id/txt_last_name"
+        android:layout_alignLeft="@+id/txt_first_name"
+        android:layout_alignRight="@+id/txt_first_name"
+        android:layout_alignEnd="@+id/txt_first_name"
+        android:hint="E-mail" />
+
+    <ProgressBar
+        android:id="@+id/email_progress"
+        style="?android:attr/progressBarStyleLarge"
+        app:layout_widthPercent="5%"
+        app:layout_heightPercent="@fraction/edittext_height_percent"
+        android:layout_below="@+id/txt_last_name"
+        android:layout_toRightOf="@+id/txt_email"
+        android:visibility="visible"
+        app:layout_aspectRatio="100%"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_widthPercent="@fraction/edittext_width_percent"
+        app:layout_heightPercent="@fraction/edittext_height_percent"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/txt_password"
+        android:layout_below="@+id/txt_email"
+        android:layout_alignLeft="@+id/txt_first_name"
+        android:layout_alignRight="@+id/txt_first_name"
+        android:layout_alignEnd="@+id/txt_first_name"
+        android:hint="Password" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_widthPercent="@fraction/edittext_width_percent"
+        app:layout_heightPercent="@fraction/edittext_height_percent"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/txt_retype_password"
+        android:layout_below="@+id/txt_password"
+        android:layout_alignLeft="@+id/txt_first_name"
+        android:layout_alignRight="@+id/txt_first_name"
+        android:layout_alignEnd="@+id/txt_first_name"
+        android:hint="Re-Type Password" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_widthPercent="5%"
+        app:layout_heightPercent="@fraction/edittext_height_percent"
+        android:layout_below="@+id/txt_password"
+        android:layout_toRightOf="@+id/txt_retype_password"
+        android:visibility="visible"
+        android:src="@color/colorAccent"
+        app:layout_aspectRatio="100%"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/btn_register"
+        android:layout_below="@+id/txt_retype_password"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/txt_retype_password"
+        android:layout_alignEnd="@+id/txt_retype_password"
+        app:layout_widthPercent="@fraction/button_width_percent"
+        app:layout_heightPercent="@fraction/button_height_percent"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOG IN"
+        android:id="@+id/btn_login"
+        android:layout_below="@+id/btn_register"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/btn_register"
+        android:layout_alignEnd="@+id/btn_register"
+        app:layout_widthPercent="@fraction/button_width_percent"
+        app:layout_heightPercent="@fraction/button_height_percent"
+        />
+
+</android.support.percent.PercentRelativeLayout>

@@ -111,7 +111,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     private void getSignUpFragment() {
-
+        this.finish();
+        startActivity(new Intent(this, SignUp.class));
     }
 
     private void populateAutoComplete() {

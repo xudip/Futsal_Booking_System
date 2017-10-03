@@ -16,17 +16,17 @@
         <activity
             android:name="com.example.sugaste.futsal_booking_system.fragments.CustomerMainScreen"
             android:label="@string/title_activity_customer_home"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name="com.example.sugaste.futsal_booking_system.LoginActivity"
             android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            </activity>
+        </activity>
+        <activity android:name="com.example.sugaste.futsal_booking_system.SignUp"></activity>
     </application>
 
 </manifest>
