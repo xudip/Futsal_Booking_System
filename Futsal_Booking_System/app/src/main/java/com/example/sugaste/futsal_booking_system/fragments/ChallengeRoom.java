@@ -1,4 +1,4 @@
-package com.example.sugaste.futsal_booking_system;
+package com.example.sugaste.futsal_booking_system.fragments;
 
 import android.content.Intent;
 import android.support.annotation.Nullable;
